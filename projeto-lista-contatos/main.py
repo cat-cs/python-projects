@@ -17,7 +17,15 @@ id_delete = int (input("Digite ID para selecionar um contato -> "))
     else:
         print("Opção Inválida. Digite SIM ou NAO");
 
+###Cria contato
+contato = cria_contato()
+inserir_item (Contatos, nome, contato.nome):
+contato.id = cursor.lastrowid
 
+(tabela, campos, valor):
+    inserir_item(Telefones, colunas_str[campos_telefone], contato.id)
+    inserir_email (Emails, contato.email, contato.id)
 
+    print("___Contato adicionado a lista com sucesso!___");
 
 """
