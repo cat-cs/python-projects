@@ -1,7 +1,7 @@
 # Projeto Lista de Contatos - CRUD
-
+> **EM CONSTRUÇÃO**
 ## Descrição
-Este projeto está em construção. Ele é uma versão melhorada de um projeto acadêmico, com o objetivo de implementar conceitos de orientação a objetos, banco de dados local, interface gráfica e outras melhorias.
+Este projeto é uma versão melhorada de um projeto acadêmico, com o objetivo de implementar conceitos de orientação a objetos, banco de dados local, interface gráfica e outras melhorias.
 
 ## Funcionalidades Planejadas
 - Gerenciamento de contatos (adicionar, editar, remover)
