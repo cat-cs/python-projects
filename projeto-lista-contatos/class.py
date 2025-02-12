@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List, Dict
+from dbconfig import DBHandler as db
 
 
 @dataclass
@@ -10,7 +11,7 @@ class Contato:
     telefones: list[Dict[str, str]] = field(default_factory=list)
 
 
-    def cria_contato(self):
+    def cria_contato(self, db):
         print("___Adcione as informações de contato___")
         self.nome = input("Nome: ")
         while True:
@@ -24,7 +25,6 @@ class Contato:
             self.telefones.append(telefone)
             if input("Deseja adicionar outro telefone? (S/N): ").strip().upper() != 'S':
                 break
-
 
     @staticmethod    
     def input_email():
