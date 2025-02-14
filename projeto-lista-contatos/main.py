@@ -1,5 +1,10 @@
-"""
+from contato import Contato as ct
+from dbconfig import DBHandler as db
 
+if __name__ == "__main__":
+    contato = ct.cria_contato()
+
+"""
 ##IMPRIME LISTA
 contatos_all= ler_DB()
 print(contatos_all(resultado, headers=["ID", "Nome", "Emails", "Telefones"], tablefmt="grid"))
