@@ -41,6 +41,8 @@ class Contato:
 
             for telefone in self.telefones:
                 db.inserir_item("Telefones", db.colunas_str['colunas_telefone'], (telefone["ddd"], telefone["numero"], self.id))
+
+            print("___Contato adicionado com sucesso!___")
         except Exception as e:
             print(f"Erro ao salvar contato: {e}")
             

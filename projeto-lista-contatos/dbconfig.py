@@ -53,30 +53,40 @@ class DBHandler:
             return item
 
     def exibe_db(self):
-        query = '''SELECT Contatos.id, Contatos.Nome, GROUP_CONCAT(DISTINCT Emails.email) AS Emails, 
-            GROUP_CONCAT(DISTINCT "(" || Telefones.ddd || ") " || Telefones.numero) AS Telefones 
-            FROM Contatos LEFT JOIN Telefones ON Contatos.id = Telefones.id_contato 
-                          LEFT JOIN Emails ON Contatos.id = Emails.id_contato 
-            GROUP BY Contatos.id, Contatos.Nome;'''
-        self.cursor.execute(query)
-        resultado = self.cursor.fetchall()
-        print(tb(resultado, headers=["ID", "Nome", "Emails", "Telefones"], tablefmt="grid"))
+        try:
+            query = '''SELECT Contatos.id, Contatos.Nome, GROUP_CONCAT(DISTINCT Emails.email) AS Emails, 
+                GROUP_CONCAT(DISTINCT "(" || Telefones.ddd || ") " || Telefones.numero) AS Telefones 
+                FROM Contatos LEFT JOIN Telefones ON Contatos.id = Telefones.id_contato 
+                              LEFT JOIN Emails ON Contatos.id = Emails.id_contato 
+                GROUP BY Contatos.id, Contatos.Nome;'''
+            self.cursor.execute(query)
+            resultado = self.cursor.fetchall()
+            print(tb(resultado, headers=["ID", "Nome", "Emails", "Telefones"], tablefmt="grid"))
+            
+        except Exception as e:
+            print(f"Erro ao exibir contatos: {e}")
 
 
 
     def deleta_item(self, tabela, id):
-        query = f'DELETE FROM {tabela} WHERE id = ?'
-        self.cursor.execute(query, (id,))
-        self.db.commit()
+        try:
+            query = f'DELETE FROM {tabela} WHERE id = ?'
+            self.cursor.execute(query, (id,))
+            self.db.commit()
+            print("___Contato excluído com sucesso!___")
+        except Exception as e:
+            print(f"Erro ao excluir contato: {e}")
 
 
 
     def atualiza_item(self, tabela, campo, novo_item, id):
-        
-
-        query = f'UPDATE {tabela} SET {campo}=? WHERE id = ?'
-        self.cursor.execute(query, (novo_item, id))
-        self.db.commit();
+        try:
+            query = f'UPDATE {tabela} SET {campo}=? WHERE id = ?'
+            self.cursor.execute(query, (novo_item, id))
+            self.db.commit()
+            print("___Contato atualizado!___")
+        except Exception as e:
+            print(f"Erro ao atualizar contato: {e}")
     
     def close_connection(self):
         self.db.close()
