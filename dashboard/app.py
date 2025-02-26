@@ -1,6 +1,8 @@
 import streamlit as st
 import plotly.express as px
-from dataset import df
+from dataset import *
+from graficos import *
+
 
 st.set_page_config(layout='wide')
 st.title('Dashboard de Vendas :shopping_trolley:')
@@ -11,6 +13,11 @@ with aba1:
 with aba2: 
     coluna1, coluna2 = st.columns(2)
     with coluna1:
-        st.metric('Receita Total', df['Preço'].sum())
+        st.metric('Receita Total', formatar_numero (df['Preço'].sum(), 'R$'))
+        st.plotly_chart(mapa_estado, use_container_width=True)
+        st.plotly_chart(receita_estado, use_container_width=True)
     with coluna2: 
-        st.metric("Quantidade de Vendas", df.shape[0])
+        st.metric("Quantidade de Vendas", formatar_numero(df.shape[0]))
+        st.plotly_chart(receita_mensal, use_container_width=True)
+        st.plotly_chart(receita_categoria, use_container_width=True)
+
