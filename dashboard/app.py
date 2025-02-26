@@ -21,3 +21,5 @@ with aba2:
         st.plotly_chart(receita_mensal, use_container_width=True)
         st.plotly_chart(receita_categoria, use_container_width=True)
 
+with aba3:
+    st.plotly_chart(receita_vendedor, use_container_width=True)
