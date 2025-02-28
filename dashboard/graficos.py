@@ -45,9 +45,17 @@ receita_categoria = px.bar(
 )
 
 receita_vendedor = px.bar(
-    df_receita_vendedor['sum'].sort_values('sum', ascending=False).head(10),
-    title='Top 10 Vendedores por Receita',
+    df_vendedor[['sum']].sort_values('sum', ascending=False).head(10),
+    title='Top 10 Vendedores - Receita',
     x = ['sum'],
-    y = df_receita_vendedor['sum'].sort_values('sum', ascending=False).head(10).index,
+    y = df_vendedor[['sum']].sort_values('sum', ascending=False).head(10).index,
+    text_auto= True,
+)
+
+vendas_vendedor = px.bar(
+    df_vendedor[['count']].sort_values('count', ascending=False).head(10),
+    title='Top 10 Vendedores - Vendas',
+    x = ['count'],
+    y = df_vendedor[['count']].sort_values('count', ascending=False).head(10).index,
     text_auto= True,
 )
