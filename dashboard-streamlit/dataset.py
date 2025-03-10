@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 
-file = open('dashboard/vendas.json')
+file = open('dashboard-streamlit/vendas.json')
 data = json.load(file)
 file.close()
 
