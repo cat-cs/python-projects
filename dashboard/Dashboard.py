@@ -5,7 +5,8 @@ from graficos import *
 from utils import *
 
 
-st.set_page_config(layout='wide')
+st.set_page_config(layout='wide', page_title = 'Dashboard de Vendas')
+
 st.title('Dashboard de Vendas :shopping_trolley:')
 st.sidebar.title('Filtro de Vendedores')
 filtro_vendedor = st.sidebar.multiselect(

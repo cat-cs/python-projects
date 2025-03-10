@@ -3,7 +3,7 @@ from dataset import df
 from utils import converte_csv, converte_json
 
 
-
+st.set_page_config(layout='wide', page_title = 'Base de Dados')
 st.title('Dataset de Vendas')
 
 with st.expander('Colunas'):
