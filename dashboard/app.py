@@ -17,7 +17,7 @@ if filtro_vendedor:
 
 aba1, aba2, aba3 = st.tabs(['Dataset', 'Receita', 'Vendedores'])
 with aba1:
-    st.dataframe(df)
+    st.dataframe(df_total)
 with aba2: 
     coluna1, coluna2 = st.columns(2)
     with coluna1:

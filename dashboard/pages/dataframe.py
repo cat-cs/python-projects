@@ -1,6 +1,8 @@
 import streamlit as st
 from dataset import df
-from utils import baixar_tabela
+from utils import converte_csv, converte_json
+
+
 
 st.title('Dataset de Vendas')
 
@@ -42,10 +44,19 @@ st.dataframe(dados_filtrados)
 
 st.markdown(f'Exibindo {dados_filtrados.shape[0]} linhas e {dados_filtrados.shape[1]} colunas')
 
-coluna1, coluna2, coluna3 = st.columns(3)
+
+coluna1, coluna2 = st.columns(2)
 with coluna1:
-    baixar_tabela('csv', dados_filtrados)
+    st.download_button(
+        'Importar arquivo em CSV',
+        data= converte_csv(dados_filtrados),
+        file_name='vendas.csv',
+        on_click= lambda: st.success (f'Arquivo CSV gerado com sucesso!'),
+        mime='text/csv')
 with coluna2:
-    baixar_tabela('excel', dados_filtrados)
-with coluna3:
-    baixar_tabela('json', dados_filtrados)
+    st.download_button(
+        'Importar arquivo em JSON',
+        data= converte_json(dados_filtrados),
+        file_name='vendas.json',
+        on_click= lambda: st.success (f'Arquivo JSON gerado com sucesso!'),
+        mime='application/json')
